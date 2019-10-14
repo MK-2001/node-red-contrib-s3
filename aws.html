@@ -28,8 +28,12 @@
             <option value="ap-southeast-1">ap-southeast-1</option>
             <option value="ap-southeast-2">ap-southeast-2</option>
             <option value="sa-east-1">sa-east-1</option>
-            <option value="own">Own infrastructure</option>
+            <option value="custom">Custom Endpoint</option>
         </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-customEndpoint"><i class="fa fa-tag"></i> <span data-i18n="aws.label.customEndpoint"></span></label>
+        <input type="text" id="node-input-customEndpoint" data-i18n="[placeholder]aws.placeholder.customEndpoint" />
     </div>
 </script>
 
@@ -53,6 +57,7 @@
             contentType: {value:""},
             filepattern: {value:""},
             name: {value:""},
+            customEndpoint: {value: ""}
         },
         inputs:0,
         outputs:1,
@@ -100,7 +105,12 @@
             <option value="ap-southeast-1">ap-southeast-1</option>
             <option value="ap-southeast-2">ap-southeast-2</option>
             <option value="sa-east-1">sa-east-1</option>
+            <option value="custom">Custom Endpoint</option>
         </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-customEndpoint"><i class="fa fa-tag"></i> <span data-i18n="aws.label.customEndpoint"></span></label>
+        <input type="text" id="node-input-customEndpoint" data-i18n="[placeholder]aws.placeholder.customEndpoint" />
     </div>
 </script>
 
@@ -125,7 +135,8 @@
             filename: {value:""},
             region: {value:"", required:true},
             name: {value:""},
-            format: {value:""}
+            format: {value:""},
+            customEndpoint: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -171,7 +182,12 @@
             <option value="ap-southeast-1">ap-southeast-1</option>
             <option value="ap-southeast-2">ap-southeast-2</option>
             <option value="sa-east-1">sa-east-1</option>
+            <option value="custom">Custom Endpoint</option>
         </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-customEndpoint"><i class="fa fa-tag"></i> <span data-i18n="aws.label.customEndpoint"></span></label>
+        <input type="text" id="node-input-customEndpoint" data-i18n="[placeholder]aws.placeholder.customEndpoint" />
     </div>
     <div class="form-row">
         <label for="node-input-acl"><i class="fa fa-tag"></i> <span data-i18n="aws.label.acl"></span></label>
@@ -240,7 +256,8 @@
             isBase64: {value: ""},
             name: {value:""},
             acl: {value: ""},
-            outputs: {value:1}
+            outputs: {value:1},
+            customEndpoint: {value: ""}
         },
         inputs:1,
         outputs:1,

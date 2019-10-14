@@ -28,6 +28,7 @@ module.exports = function(RED) {
         // eu-west-1||us-east-1||us-west-1||us-west-2||eu-central-1||ap-northeast-1||ap-northeast-2||ap-southeast-1||ap-southeast-2||sa-east-1
         this.region = n.region || "eu-west-1";
         this.bucket = n.bucket;
+        this.customEndpoint = n.customEndpoint;
         this.filepattern = n.filepattern || "";
         var node = this;
         var AWS = this.awsConfig ? this.awsConfig.AWS : null;
@@ -36,7 +37,12 @@ module.exports = function(RED) {
             node.warn(RED._("aws.warn.missing-credentials"));
             return;
         }
-        var s3 = new AWS.S3({"region": node.region});
+        if (node.region != "custom") {
+            var s3 = new AWS.S3({"region": node.region});
+        } else {
+            var ep = new AWS.Endpoint(node.customEndpoint);
+            var s3 = new AWS.S3({endpoint: ep});
+        }
         node.status({fill:"blue",shape:"dot",text:"aws.status.initializing"});
         s3.listObjects({ Bucket: node.bucket }, function(err, data) {
             if (err) {
